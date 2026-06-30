@@ -187,7 +187,7 @@ button:hover {
 
 .fx {
     position: absolute;
-    font-size: calc(2rem * var(--scale));  /* NOW SCALES WITH SLIDER */
+    font-size: calc(2rem * var(--scale));
     font-weight: bold;
 }
 
