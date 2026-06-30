@@ -2,7 +2,7 @@
 Simple point counter to count how many points each team has.
 Honestly barely works.
 
-**Features**
+# Features
 - Renameable teams
 - Ability to change team colours
 - Cool animation when taking away points
@@ -12,5 +12,7 @@ Honestly barely works.
 - Discreet settings menu
 - Text is centered
 
-**How to run**
-Just visit this link:
+# How to run
+Download the newest release.
+**or**
+Visit this link: https://waffletoffle98.github.io/point-counter/
