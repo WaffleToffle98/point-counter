@@ -7,6 +7,7 @@ let teams = [
 const panel = document.getElementById("settingsPanel");
 const toggleBtn = document.getElementById("settingsToggleBtn");
 const closeBtn = document.getElementById("closeSettingsBtn");
+const fullscreenBtn = document.getElementById("fullscreenBtn"); // now inside panel
 const s1 = document.getElementById("score1");
 const s2 = document.getElementById("score2");
 
@@ -32,7 +33,20 @@ toggleBtn.onclick = () => {
 closeBtn.onclick = closePanel;
 
 // ------------------------------------------------------------
-// 2. TEXT SIZE SLIDER
+// 2. FULLSCREEN TOGGLE
+// ------------------------------------------------------------
+fullscreenBtn.onclick = () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+};
+
+// ------------------------------------------------------------
+// 3. TEXT SIZE SLIDER
 // ------------------------------------------------------------
 sizeSlider.oninput = (e) => {
     const val = e.target.value;
@@ -41,7 +55,7 @@ sizeSlider.oninput = (e) => {
 };
 
 // ------------------------------------------------------------
-// 3. SCORE CHANGE
+// 4. SCORE CHANGE
 // ------------------------------------------------------------
 function change(i, val) {
     teams[i].score = Math.max(0, teams[i].score + val);
@@ -52,24 +66,19 @@ function change(i, val) {
     void el.offsetWidth;
     el.classList.add("pop");
 
-    // pass the score element directly
     showFloatingEffect(el, val);
 }
 
 // ------------------------------------------------------------
-// 4. FLOATING +1 / -1 – beside the SCORE, with dynamic spacing
+// 5. FLOATING +1 / -1 – beside the SCORE, with dynamic spacing
 // ------------------------------------------------------------
 function showFloatingEffect(el, val) {
     const rect = el.getBoundingClientRect();
-
-    // read the current scale from CSS
     const scale = parseFloat(
         getComputedStyle(document.documentElement).getPropertyValue("--scale").trim()
     ) || 1;
 
-    // base gap increases with the slider to prevent clipping
     const gap = 20 * scale;
-    // approximate width of the floating text ("+1" or "-1") – it scales too
     const textWidth = 28 * scale;
 
     const div = document.createElement("div");
@@ -77,14 +86,11 @@ function showFloatingEffect(el, val) {
     div.textContent = val > 0 ? "+1" : "-1";
 
     if (val > 0) {
-        // place it to the RIGHT of the score
         div.style.left = (rect.right + gap) + "px";
     } else {
-        // place it to the LEFT of the score
         div.style.left = (rect.left - gap - textWidth) + "px";
     }
 
-    // vertically align it with the score's top edge
     div.style.top = rect.top + "px";
 
     document.getElementById("effects").appendChild(div);
@@ -92,7 +98,7 @@ function showFloatingEffect(el, val) {
 }
 
 // ------------------------------------------------------------
-// 5. RENDER – updates names, scores, and colours
+// 6. RENDER – updates names, scores, and colours
 // ------------------------------------------------------------
 function render() {
     const name1 = document.getElementById("team1Name");
@@ -111,7 +117,7 @@ function render() {
 }
 
 // ------------------------------------------------------------
-// 6. WIRE UP SETTINGS CONTROLS
+// 7. WIRE UP SETTINGS CONTROLS
 // ------------------------------------------------------------
 team1NameInput.oninput = (e) => {
     teams[0].name = e.target.value.trim() || "Team 1";
@@ -144,7 +150,7 @@ document.getElementById("resetBtn").onclick = () => {
 };
 
 // ------------------------------------------------------------
-// 7. INITIALISE – pre‑fill inputs and render
+// 8. INITIALISE – pre‑fill inputs and render
 // ------------------------------------------------------------
 function initSettings() {
     team1NameInput.value = teams[0].name;
