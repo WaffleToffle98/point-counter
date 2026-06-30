@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+:root {
+    --scale: 1;
+}
+
+body {
+    background: radial-gradient(circle at top, #202020, #0d0d0d);
+    color: white;
+    overflow: hidden;
+}
+
+/* ---------------- SETTINGS TOGGLE (GEAR) ---------------- */
+
+#settingsToggleBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #2a2a2a;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: 0.3s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#settingsToggleBtn:hover {
+    background: #3a3a3a;
+    transform: rotate(60deg);
+}
+
+/* ---------------- SETTINGS PANEL ---------------- */
+
+#settingsPanel {
+    position: fixed;
+    right: -320px;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    background: #151515;
+    padding: 20px;
+    transition: 0.35s ease;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    overflow-y: auto;
+}
+
+#settingsPanel.open {
+    right: 0;
+}
+
+#closeSettingsBtn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 24px;
+    cursor: pointer;
+    width: auto;
+    padding: 0 6px;
+    margin: 0;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+#closeSettingsBtn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.card {
+    margin: 15px 0;
+    padding: 10px;
+    background: #222;
+    border-radius: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    margin: 6px 0;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+/* ---- BIG ROUNDED COLOUR PICKER ---- */
+input[type="color"] {
+    width: 100%;
+    height: 48px;
+    padding: 4px;
+    border-radius: 12px;
+    border: 2px solid #444;
+    background: #1a1a1a;
+    cursor: pointer;
+    display: block;
+    box-sizing: border-box;
+    margin: 6px 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 2px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border-radius: 8px;
+    border: none;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 6px 0;
+    cursor: pointer;
+    background: transparent;
+}
+
+button {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #444;
+}
+
+/* ---------------- SCOREBOARD ---------------- */
+
+#board {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.team h1 {
+    opacity: 0.85;
+    text-align: center;
+    font-size: calc(2rem * var(--scale));
+}
+
+.score {
+    font-size: calc(7rem * var(--scale));
+    font-weight: bold;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.pop {
+    animation: pop 0.25s;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ---------------- EFFECTS ---------------- */
+
+#effects {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 30;
+}
+
+.fx {
+    position: absolute;
+    font-size: calc(2rem * var(--scale));  /* NOW SCALES WITH SLIDER */
+    font-weight: bold;
+}
+
+.up {
+    color: #00ff88;
+    animation: up 0.6s forwards;
+}
+
+@keyframes up {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-70px); }
+}
+
+.down {
+    color: #ff3b3b;
+    animation: down 0.6s forwards;
+}
+
+@keyframes down {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(70px); }
+}
