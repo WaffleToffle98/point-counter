@@ -1,75 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scoreboard</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scoreboard Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1e1e2a, #0a0a0f);
+      color: #eee;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      letter-spacing: 4px;
+      opacity: 0.8;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .mode-btn {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      border-radius: 60px;
+      background: #2a2a3a;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      transition: 0.25s ease;
+      border: 2px solid transparent;
+      min-width: 220px;
+      text-align: center;
+    }
+
+    .mode-btn:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: #3a3a52;
+      border-color: #7a7aff;
+    }
+
+    .mode-btn.team {
+      background: #2a3a5a;
+    }
+    .mode-btn.team:hover {
+      background: #3a5a7a;
+      border-color: #5a9aff;
+    }
+
+    .mode-btn.individual {
+      background: #3a2a5a;
+    }
+    .mode-btn.individual:hover {
+      background: #5a3a7a;
+      border-color: #b07aff;
+    }
+
+    .sub {
+      margin-top: 1rem;
+      opacity: 0.5;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
-
-<!-- SETTINGS PANEL -->
-<aside id="settingsPanel">
-
-    <h2>Settings</h2>
-    <button id="closeSettingsBtn">✕</button>
-
-    <!-- Team 1 -->
-    <div class="card">
-        <h3>Team 1</h3>
-        <input id="team1NameInput" placeholder="Team 1 name">
-        <input id="team1Colour" type="color">
-        <button id="team1Minus">-1</button>
-        <button id="team1Plus">+1</button>
-    </div>
-
-    <!-- Team 2 -->
-    <div class="card">
-        <h3>Team 2</h3>
-        <input id="team2NameInput" placeholder="Team 2 name">
-        <input id="team2Colour" type="color">
-        <button id="team2Minus">-1</button>
-        <button id="team2Plus">+1</button>
-    </div>
-
-    <!-- Text Size Slider -->
-    <div class="card">
-        <h3>Text Size</h3>
-        <div style="display:flex; align-items:center; gap:12px;">
-            <input type="range" id="sizeSlider" min="50" max="200" value="100" style="flex:1;">
-            <span id="sizeLabel" style="min-width:44px; text-align:center;">100%</span>
-        </div>
-    </div>
-
-    <button id="resetBtn">Reset Scores</button>
-
-    <!-- NEW: Fullscreen button inside the panel -->
-    <button id="fullscreenBtn">⛶ Fullscreen</button>
-
-</aside>
-
-<!-- SCOREBOARD -->
-<main id="board">
-
-    <div class="team">
-        <h1 id="team1Name">Team 1</h1>
-        <div id="score1" class="score">0</div>
-    </div>
-
-    <div class="team">
-        <h1 id="team2Name">Team 2</h1>
-        <div id="score2" class="score">0</div>
-    </div>
-
-</main>
-
-<!-- GEAR BUTTON (settings toggle) – still there -->
-<button id="settingsToggleBtn" aria-label="Toggle settings">⚙️</button>
-
-<!-- EFFECTS -->
-<div id="effects"></div>
-
-<script src="script.js"></script>
-
+  <h1>point_counter</h1>
+  <div class="buttons">
+    <a href="TeamPointCount/index.html" class="mode-btn team">Team Points</a>
+    <a href="IndividualCount/index.html" class="mode-btn individual">Individual Points</a>
+  </div>
+  <p class="sub">waffletoffle98</p>
 </body>
 </html>

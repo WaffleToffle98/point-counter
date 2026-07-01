@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Individual Scoreboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SETTINGS PANEL -->
+  <aside id="settingsPanel">
+    <h2>Settings</h2>
+    <button id="closeSettingsBtn">✕</button>
+
+    <!-- Players section -->
+    <div class="card">
+      <h3>Players</h3>
+      <div id="playerControls">
+        <button id="addPlayerBtn">+ Add Player</button>
+      </div>
+      <div id="playersSettings">
+        <!-- dynamically rendered player setting cards -->
+      </div>
+    </div>
+
+    <!-- Text Size Slider -->
+    <div class="card">
+      <h3>Text Size</h3>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <input type="range" id="sizeSlider" min="50" max="300" value="100" style="flex:1;" />
+        <span id="sizeLabel" style="min-width:44px; text-align:center;">100%</span>
+      </div>
+    </div>
+
+    <button id="resetBtn">Reset All Scores</button>
+
+    <!-- NEW: Home button -->
+    <a href="../index.html" style="display:block; text-decoration:none; margin:5px 0;">
+        <button style="width:100%; background:#3a3a5a;">Home</button>
+    </a>
+
+    <button id="fullscreenBtn">⛶ Fullscreen</button>
+  </aside>
+
+  <!-- SCOREBOARD -->
+  <main id="board">
+    <!-- players will be rendered here -->
+  </main>
+
+  <!-- GEAR BUTTON -->
+  <button id="settingsToggleBtn" aria-label="Toggle settings">⚙️</button>
+
+  <!-- EFFECTS CONTAINER -->
+  <div id="effects"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
