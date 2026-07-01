@@ -1,4 +1,4 @@
-# Point-counter
+# point_counter
 Simple point counter to count how many points someone/a team has.
 
 # Features
