@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scoreboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SETTINGS PANEL -->
+<aside id="settingsPanel">
+
+    <h2>Settings</h2>
+    <button id="closeSettingsBtn">✕</button>
+
+    <!-- Team 1 -->
+    <div class="card">
+        <h3>Team 1</h3>
+        <input id="team1NameInput" placeholder="Team 1 name">
+        <input id="team1Colour" type="color">
+        <button id="team1Minus">-1</button>
+        <button id="team1Plus">+1</button>
+    </div>
+
+    <!-- Team 2 -->
+    <div class="card">
+        <h3>Team 2</h3>
+        <input id="team2NameInput" placeholder="Team 2 name">
+        <input id="team2Colour" type="color">
+        <button id="team2Minus">-1</button>
+        <button id="team2Plus">+1</button>
+    </div>
+
+    <!-- Text Size Slider -->
+    <div class="card">
+        <h3>Text Size</h3>
+        <div style="display:flex; align-items:center; gap:12px;">
+            <input type="range" id="sizeSlider" min="50" max="300" value="100" style="flex:1;">
+            <span id="sizeLabel" style="min-width:44px; text-align:center;">100%</span>
+        </div>
+    </div>
+
+    <button id="resetBtn">Reset Scores</button>
+
+    <!-- NEW: Home button -->
+    <a href="../index.html" style="display:block; text-decoration:none; margin:5px 0;">
+        <button style="width:100%; background:#3a3a5a;">Home</button>
+    </a>
+
+    <!-- NEW: Fullscreen button inside the panel -->
+    <button id="fullscreenBtn">⛶ Fullscreen</button>
+
+</aside>
+
+<!-- SCOREBOARD -->
+<main id="board">
+
+    <div class="team">
+        <h1 id="team1Name">Team 1</h1>
+        <div id="score1" class="score">0</div>
+    </div>
+
+    <div class="team">
+        <h1 id="team2Name">Team 2</h1>
+        <div id="score2" class="score">0</div>
+    </div>
+
+</main>
+
+<!-- GEAR BUTTON (settings toggle) – still there -->
+<button id="settingsToggleBtn" aria-label="Toggle settings">⚙️</button>
+
+<!-- EFFECTS -->
+<div id="effects"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
