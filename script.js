@@ -58,7 +58,7 @@ sizeSlider.oninput = (e) => {
 // 4. SCORE CHANGE
 // ------------------------------------------------------------
 function change(i, val) {
-    teams[i].score = Math.max(0, teams[i].score + val);
+    teams[i].score += val;
     render();
 
     const el = i === 0 ? s1 : s2;
